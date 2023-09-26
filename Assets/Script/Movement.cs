@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
+
+    
     Rigidbody rb;
     Animator animator;
+
+     AudioSource beeSounds;
     [SerializeField] float thrustSpeed = 1000f ;
     [SerializeField] float rotateSpeed = 700 ;
   
@@ -13,6 +17,7 @@ public class Movement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         animator =GetComponent<Animator>();
+        beeSounds = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -29,9 +34,18 @@ public class Movement : MonoBehaviour
             
             rb.AddRelativeForce(Vector3.up * thrustSpeed * Time.deltaTime);
             animator.SetBool("isMoving", true);
+
+            
+            if(!beeSounds.isPlaying) // if bee sound is not playing.
+            {
+                beeSounds.Play();
+            }
+            
+                 
         }
         else 
         {
+            beeSounds.Stop(); // stops whenever i release the spacebar. same as the animation.
             animator.SetBool("isMoving", false);
         }
     }
@@ -48,7 +62,7 @@ public class Movement : MonoBehaviour
             ApplyRotation(rotateSpeed);
         }
     }
-    // testing testing 
+
 
     void ApplyRotation(float RotatePosNeg)
     {
