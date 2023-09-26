@@ -9,25 +9,20 @@ public class Movement : MonoBehaviour
     Rigidbody rb;
     Animator animator;
 
-     AudioSource beeSounds;
+    AudioSource audioSource;
+
+    [SerializeField] AudioClip beeSounds;
     [SerializeField] float thrustSpeed = 1000f ;
     [SerializeField] float rotateSpeed = 700 ;
   
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        animator =GetComponent<Animator>();
-        beeSounds = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Thrusting();
-        Rotation();     
-    }
-
-    void Thrusting()
+    public void Thrusting()
     {
         if(Input.GetKey(KeyCode.Space))
         {
@@ -36,21 +31,21 @@ public class Movement : MonoBehaviour
             animator.SetBool("isMoving", true);
 
             
-            if(!beeSounds.isPlaying) // if bee sound is not playing.
+            if(!audioSource.isPlaying) // if bee sound is not playing.
             {
-                beeSounds.Play();
+                audioSource.PlayOneShot(beeSounds);
             }
             
                  
         }
         else 
         {
-            beeSounds.Stop(); // stops whenever i release the spacebar. same as the animation.
+            audioSource.Stop(); // stops whenever i release the spacebar. same as the animation.
             animator.SetBool("isMoving", false);
         }
     }
 
-    void Rotation()
+    public void Rotation()
     {
         if(Input.GetKey(KeyCode.A))
         {
