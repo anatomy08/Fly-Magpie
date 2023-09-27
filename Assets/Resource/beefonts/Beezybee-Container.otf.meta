@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ec4456fd68d9f6e42938e0fa2361aba0
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Beezybee
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5b6f09e0da31d02458b2cc309ee10659, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
