@@ -16,7 +16,7 @@ public class CheatCodes : MonoBehaviour
 
     void Update()
     {
-        CheatLoadNextScene();
+        CheatLoadNextScene(); 
         DisabledCollision();
     }
     
